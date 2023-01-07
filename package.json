@@ -1,0 +1,22 @@
+{
+  "name": "ambientize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -b ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/yargs": "^17.0.19",
+    "typescript": "^4.9.4",
+    "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "ts-creator": "^1.2.5"
+  }
+}
