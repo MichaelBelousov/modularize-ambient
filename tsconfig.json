@@ -7,6 +7,7 @@
     "outDir": "lib",
     "strict": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node"],
+    "sourceMap": true
   }
 }

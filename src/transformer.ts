@@ -6,16 +6,15 @@ const declarationFiltersToUpdaters = new Map<
   Pick<typeof ts, `is${string}` & keyof typeof ts>,
   Pick<typeof ts.factory, `update${string}` & keyof typeof ts.factory>
 >(
-  Object.fromEntries(
     Object.entries(ts.factory)
-      .map(([key, value]) => ({ key, match: /^update(?<name>\w+*Declaration$)/.exec(key), updateFunc: value }))
+      .map(([key, value]) => ({ key, match: /^update(?<name>\w+Declaration$)/.exec(key), updateFunc: value }))
       .filter(({ match }) => !!match)
       .map(({ match, updateFunc }) => {
         const name = match?.groups?.["name"];
         assert(name);
-        return [ts[`is${name}` as keyof typeof ts], updateFunc] as const;
+        return [ts[`is${name}` as keyof typeof ts] as any, updateFunc] as const;
       })
-  ));
+  );
 
 const transformer: ts.TransformerFactory<ts.SourceFile> = (ctx) => (
   srcFile
